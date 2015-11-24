@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+	{% include "search_sidebar.html" %}
+{% endblock %}
+		
+{% block content %}
+			<div id='container'>
+	{% include "billboard.html" %}
+			</div>
+    		{% include "footer.html" %}
+{% endblock %}

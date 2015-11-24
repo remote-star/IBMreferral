@@ -1,0 +1,182 @@
+td:first-child
+{
+width : 300px;
+}
+
+.job-table tbody tr td
+{
+vertical-align : middle;
+}
+
+.well h4
+{
+text-align : center;
+}
+
+div.pag_div
+{
+text-align : center;
+}
+
+.pagination > li > .current
+{
+  z-index: 3;
+  color: #23527c;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+.dropdown > button
+{
+width : 100%;
+overflow : hidden;
+}
+
+div.sidebar
+{
+	display:block;
+}
+
+.nav-sidebar > li > a
+{
+text-align : center;
+}
+
+.nav-sidebar li.current
+{
+    background-color: #eee;
+}
+
+.dropdown
+{
+margin-bottom: 20px;
+}
+
+.glyphicon-usd
+{
+color : gold;
+}
+
+.search_box input
+{
+text-align : center;
+}
+
+.search_box
+{
+text-align : center;
+}
+
+.search_box button
+{
+margin: 20px;
+width: 90px;
+}
+
+.jumbotron 
+{
+padding-top: 20px;
+padding-bottom: 20px;
+padding-right: 30px;
+    padding-left: 30px;
+}
+
+div.col-sm-8.blog-main {
+    width: 75%;
+    margin-left: 5%;
+    text-align: justify;
+}
+
+.blog-post
+{
+line-height: 28px;
+font-size : 18px;
+}
+
+.blog-post h2 
+{
+font-weight:bold;
+}
+
+.blog-post h3
+{
+margin-top: 32px;
+font-weight:bold;
+}
+
+.blog-post li
+{
+margin : 8px 0px;
+}
+
+.img_wrapper
+{
+    text-align: center;
+    margin : 20px 0px;
+}
+
+.form-group.button-wrapper
+{
+	text-align : center;
+}
+
+@media screen and (min-width: 767px) {
+#billboard .close
+{
+    margin-right: -45px;
+    margin-top: -10px;
+}
+}
+#hint
+{
+	padding : 15px;
+	text-align : center;
+}
+
+.table-job-title
+{
+	width : 70%;
+}
+
+
+/*
+ * Footer
+ */
+
+.blog-footer {
+  padding: 20px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+  margin-bottom : -20px;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
+#container
+{
+min-height : 535px;
+margin-bottom : 40px;
+}
+
+#blog-container
+{
+min-height : 535px;
+margin-bottom : 20px;
+}
+
+.img-title
+{
+    text-align: center;
+    font-size: 14px;
+    margin-top: -15px;
+}
+
+.side-pic
+{
+    width: 300px;
+    float: right;
+    margin: 5px 0px 5px 20px;
+}

@@ -1,0 +1,9 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+      <li class="group active"><a>热招职位</a></li>
+	    <li {% if sub == 'tutorial' %}class="current"{% endif %}><a href="/tutorial/">如何使用</a></li>
+	    <li {% if sub == 'about_ibm' %}class="current"{% endif %}><a href="/about_ibm/">关于IBM</a></li>
+	    <li {% if sub == 'faq' %}class="current"{% endif %}><a href="/faq">FAQ</a></li>
+	    <li {% if sub == 'contact' %}class="current"{% endif %}><a href="/contact">联系我们</a></li>
+  </ul>
+</div>

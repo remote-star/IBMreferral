@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+	{% include "help/help_sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="col-sm-8 blog-main">
+	<div id="blog-container">
+{% block core %}
+{% endblock %}
+	</div>
+    		{% include "footer.html" %}
+</div>
+{% endblock %}

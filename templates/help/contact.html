@@ -1,0 +1,24 @@
+{% extends "help/help.html" %}
+
+{% block core %}
+	<div class="blog-post">
+		<h2 class="blog-post-title">联系我们</h2>
+		<hr>
+		<p>
+			有任何的疑问、建议与意见，都欢迎在这里发送邮件与我们取得联络。
+		</p>
+		<form action='mailto:ibmreferrals@163.com'>
+			<div class="form-group">
+				<label>主题</label>
+				<input name="subject" class="form-control" placeholder="输入主题">
+			</div>
+			<div class="form-group">
+				<label>正文</label>
+				<textarea class="form-control" rows="15" placeholder="输入正文" name="body"></textarea>
+			</div>
+			<div class="form-group button-wrapper">
+				<input type="submit" class="btn btn-default" value="发送邮件">
+			</div>
+		</form>
+	</div><!-- /.blog-post -->
+{% endblock %}

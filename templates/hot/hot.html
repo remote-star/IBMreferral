@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+	{% include "hot/hot_sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="col-sm-8 blog-main">
+	<div id="blog-container">
+{% block core %}
+		<div class="blog-post">
+			<h2 class="blog-post-title">IBM热招职位</h2>
+			<hr>
+				<p>
+			这里展示是IBM内部发布的招聘信息，这些职位大多是因公司战略调整而开放的，招聘人数较多，奖金也更为丰厚。这些职位大多可以在首页的职位列表中搜索到，但也有可能并未被收录其中。
+				</p>
+				<p>
+			热招职位的具体信息在此处可能展示并不详细，您可凭职位名称中的关键字，在首页中搜索对应或相似职位来查看更详细的说明。除此之外，很抱歉暂时还没有更好的办法为您展示关于某个职位的更准确与详细的信息。
+				</p>
+				<p>
+			如果要申请这些热招职位，您可以在首页的职位列表中寻找对应职位进行申请，如果没有找到或是无法确定的话，也可连同您的简历与要申请的职位(包括名称、地点及属于哪个页面)，发送邮件到ibmreferrals@163.com，我们会及时将您推荐给负责招聘的工作人员。
+				</p>
+		</div>
+{% endblock %}
+	</div>
+    		{% include "footer.html" %}
+</div>
+{% endblock %}
