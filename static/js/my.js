@@ -140,13 +140,10 @@ function search() {
         	show_jobs();
         } 
 	});
+	$('#search_button').blur();
 }
 
 function show_jobs() {
-	
-	$('.table-responsive').remove();
-	$('.pag_div').remove();
-	$('#hint').remove();
 	
 	turn_to_page(1);
 }
@@ -155,6 +152,10 @@ function turn_to_page(page) {
 	var tbody, tr, td, a, span, job, i, table_wrapper,
 		base = (page-1)*10,
 		main = $('#container');
+	
+	$('.table-responsive').remove();
+	$('.pag_div').remove();
+	$('#hint').remove();
 	
 	table_wrapper = $('<div></div>');
 	table_wrapper.addClass('table-responsive');
@@ -207,6 +208,7 @@ function turn_to_page(page) {
 	table_wrapper.append(tbody);
 	main.append(table_wrapper);
 	set_pagination(page);
+	window.scrollTo(0,0);
 }
 
 function show_blank_page() {
