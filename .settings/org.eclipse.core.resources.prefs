@@ -1,4 +1,3 @@
 eclipse.preferences.version=1
-encoding//main/spider/main.py=utf-8
-encoding//main/spider/test.py=utf-8
+encoding//main/spider.py=utf-8
 encoding//main/views.py=utf-8

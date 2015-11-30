@@ -1,9 +1,12 @@
 #coding:utf-8
-import urllib.request
+import os 
+import sys
+import urllib
+import urllib2
 import json
-import re
-import http.cookiejar
 from main.models import Job
+import re
+import cookielib
 
 class Spider(object):
     opener = None
@@ -17,9 +20,9 @@ class Spider(object):
         # deal with the Cookies
         if self.opener:
             return 
-        cj = http.cookiejar.CookieJar()
-        pro = urllib.request.HTTPCookieProcessor(cj)
-        self.opener = urllib.request.build_opener(pro)
+        cj = cookielib.CookieJar()
+        pro = urllib2.HTTPCookieProcessor(cj)
+        self.opener = urllib2.build_opener(pro)
 #         header = []
 #         for key, value in head.items():
 #             elem = (key, value)
@@ -43,7 +46,7 @@ class Spider(object):
             'callback_form_id': 'jPanelLoginForm',
             '_': '1445427666754'
         }
-        data = urllib.parse.urlencode(values)
+        data = urllib.urlencode(values)
         geturl = url + '?' + data
         op = self.opener.open(geturl)
         data = op.read()
@@ -71,9 +74,9 @@ class Spider(object):
         values = {
             'Job.id': id,
         }
-        data = urllib.parse.urlencode(values).encode(encoding='UTF8')
+        data = urllib.urlencode(values).encode(encoding='UTF8')
         url = 'http://ibmreferrals.com/ajax/job_short_url?uid=662'
-        request = urllib.request.Request(url, data)
+        request = urllib2.Request(url, data)
         response = self.opener.open(request)
         response_in_json = json.loads(response.read().decode())
         ref_link = None
@@ -137,10 +140,10 @@ class Spider(object):
                 'include_site': 'true',
                 'uid': 641,
             }
-            data = urllib.parse.urlencode(values)
+            data = urllib.urlencode(values)
             url = 'http://ibmreferrals.com/ajax/content/job_results'
             geturl = url + '?' + data
-            request = urllib.request.Request(geturl)
+            request = urllib2.Request(geturl)
             response = self.opener.open(request)
             response_in_json = json.loads(response.read().decode('utf8'))
             if response_in_json:
@@ -164,9 +167,9 @@ class Spider(object):
             'geo_search_radius_units':'mi',
             'geo_region_area_id':'G_1809935',
         }
-        data = urllib.parse.urlencode(values).encode(encoding='UTF8')
+        data = urllib.urlencode(values).encode(encoding='UTF8')
         url = 'http://ibmreferrals.com/ajax/jobs/search/create?uid=459'
-        request = urllib.request.Request(url, data)
+        request = urllib2.Request(url, data)
         response = self.opener.open(request)
         response_in_json = json.loads(response.read().decode())
         if response_in_json:

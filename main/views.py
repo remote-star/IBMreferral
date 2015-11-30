@@ -4,8 +4,6 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response, RequestContext
 from django.core import serializers
 
-from main.spider.main import Spider
-from main.timer import begin_interval
 from main.models import Job
 from django.db.models import Q
 
