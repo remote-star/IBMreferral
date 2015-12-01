@@ -122,7 +122,7 @@ function search() {
 	var location = getOption('Location'),
 		category = getOption('Category'),
 		keyword = $('#search_input').val(),
-		formData = new FormData($('#csrfForm')),
+		formData = new FormData($('#csrfForm')[0]),
 		that = this;
 	formData.append("location", location);
 	formData.append("category", category); 
