@@ -80,13 +80,6 @@ padding-bottom: 20px;
 padding-right: 30px;
     padding-left: 30px;
 }
-
-div.col-sm-8.blog-main {
-    width: 75%;
-    margin-left: 5%;
-    text-align: justify;
-}
-
 .blog-post
 {
 line-height: 28px;
@@ -120,6 +113,12 @@ margin : 8px 0px;
 	text-align : center;
 }
 
+div.col-sm-8.blog-main {
+    width: 100%;
+    margin-left: 0%;
+    text-align: justify;
+}
+
 @media screen and (min-width: 767px) {
 #billboard .close
 {
@@ -127,6 +126,14 @@ margin : 8px 0px;
     margin-top: -10px;
 }
 }
+@media screen and (min-width: 992px) {
+div.col-sm-8.blog-main {
+    width: 75%;
+    margin-left: 5%;
+    text-align: justify;
+}
+}
+
 #hint
 {
 	padding : 15px;
@@ -179,4 +186,9 @@ margin-bottom : 20px;
     width: 300px;
     float: right;
     margin: 5px 0px 5px 20px;
+}
+
+#dropdownListCategory, #dropdownListLocation
+{
+	min-width: 100%;
 }

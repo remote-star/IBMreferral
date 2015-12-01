@@ -38,7 +38,7 @@ def help(request, tab='tutorial'):
         )
 
 def market(request, tab='market'):
-    tabs = ('market')
+    tabs = ('market', 'total')
     if tab in tabs:
         return render_to_response(
             'market/' + tab + '.html',
