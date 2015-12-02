@@ -18,7 +18,7 @@ def index(request):
     )
 
 def hot(request, tab='hot'):
-    tabs = ('hot', 'openpower', 'gts', 'cio', 'sales', 'gbs', 'digital_sales')
+    tabs = ('hot', 'openpower', 'gts', 'cio', 'sales', 'gbs', 'digital_sales', 'rnd')
     if tab in tabs:
         return render_to_response(
             'hot/' + tab + '.html',
