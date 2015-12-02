@@ -8,7 +8,7 @@ $().ready(function(){
 		event.preventDefault()
 		search();
 	});
-	$('#billboard').children().on('click', function(event){
+	$('#billboard').children('button').on('click', function(event){
 		$('#billboard').remove();
 	});
 	search();
