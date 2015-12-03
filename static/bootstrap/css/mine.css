@@ -208,3 +208,21 @@ position:relative;
 top:100px;
 left:-8px;
 }
+
+.qecode_wrapper
+{
+    float: right;
+    margin-right: -20px;
+}
+
+#promotion_hint
+{
+    margin-right: 100px;
+}
+
+.qrcode
+{
+    width: 100px;
+    float: right;
+    margin: 0px -20px 0px 0px;
+}
