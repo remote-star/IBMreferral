@@ -118,6 +118,11 @@ div.col-sm-8.blog-main {
     margin-left: 0%;
     text-align: justify;
 }
+#billboard .close
+{
+    margin-right: -20px;
+    margin-top: -5px;
+}
 
 @media screen and (min-width: 767px) {
 #billboard .close
@@ -217,12 +222,11 @@ left:-8px;
 
 #promotion_hint
 {
-    margin-right: 100px;
+    margin-right: 120px;
 }
 
 .qrcode
 {
     width: 100px;
     float: right;
-    margin: 0px -20px 0px 0px;
 }
