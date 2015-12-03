@@ -14,10 +14,6 @@ $().ready(function(){
 	search();
 }) 
 
-//$('.dropdown-toggle').on('', function() {
-//	search();
-//});
-
 var jobs;
 
 function setLocations() {
@@ -98,26 +94,6 @@ function reload_other_menus(except, other_menus_items) {
 	});
 }
 
-//function get_other_menu_items(menu_name, item) {
-//	var	formData = new FormData($('#csrfForm'));
-//	
-//	formData.append("menu", menu_name.toLowerCase());
-//	formData.append("item", item); 
-//	
-//	$.ajax({
-// 		type: 'POST',
-//		url:"/getOtherMenus/",
-//  		data: formData,
-//        dataType: "json", 
-//        processData: false,
-//        contentType: false,
-//        success: function (data) {
-//        	reload_other_menus(menu_name, data)
-//        } 
-//	});
-//
-//}
-
 function search() {
 	var location = getOption('Location'),
 		category = getOption('Category'),
@@ -128,6 +104,11 @@ function search() {
 	formData.append("category", category); 
 	formData.append("keyword", keyword); 
 	
+	$('.table-responsive').remove();
+	$('.pag_div').remove();
+	$('#hint').remove();
+	$('.query_hint').show();
+	
 	$.ajax({
  		type: 'POST',
 		url:"/getJobs/",
@@ -137,25 +118,17 @@ function search() {
         contentType: false,
         success: function (data) {
         	that.jobs = JSON.parse(data);
-        	show_jobs();
+        	turn_to_page(1);
+        	$('.query_hint').hide();
         } 
 	});
 	$('#search_button').blur();
-}
-
-function show_jobs() {
-	
-	turn_to_page(1);
 }
 
 function turn_to_page(page) {
 	var tbody, tr, td, a, span, job, i, table_wrapper,
 		base = (page-1)*10,
 		main = $('#container');
-	
-	$('.table-responsive').remove();
-	$('.pag_div').remove();
-	$('#hint').remove();
 	
 	table_wrapper = $('<div></div>');
 	table_wrapper.addClass('table-responsive');
