@@ -130,6 +130,10 @@ function turn_to_page(page) {
 		base = (page-1)*10,
 		main = $('#container');
 	
+	$('.table-responsive').remove();
+	$('.pag_div').remove();
+	$('#hint').remove();
+	
 	table_wrapper = $('<div></div>');
 	table_wrapper.addClass('table-responsive');
 	
