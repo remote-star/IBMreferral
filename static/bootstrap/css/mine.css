@@ -120,7 +120,7 @@ div.col-sm-8.blog-main {
 }
 #billboard .close
 {
-    margin-right: -10px;
+    margin-right: -20px;
     margin-top: -5px;
 }
 
@@ -141,13 +141,18 @@ div.col-sm-8.blog-main {
 }
 
 @media screen and (min-width: 767px) {
+#phone_hint
+{
+display : none;
+}
+
 #billboard .close
 {
     margin-right: -45px;
     margin-top: -10px;
 }
 
-.qecode_wrapper
+.qrcode_wrapper
 {
     display:block;
     float: right;
