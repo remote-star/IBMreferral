@@ -69,7 +69,7 @@ text-align : center;
 
 .search_box button
 {
-margin: 20px;
+margin-top: 20px;
 width: 90px;
 }
 
@@ -254,4 +254,22 @@ margin-bottom : 20px;
 position:relative;
 top:100px;
 left:-8px;
+}
+
+.modal_img
+{
+    display: inline;
+    height: 35px;    
+}
+
+.modal-body p
+{
+    line-height: 28px;
+    font-size: 18px;
+    margin: 20px 50px 20px;
+}
+
+.checkbox-inline label
+{
+    margin-right: 10px;
 }

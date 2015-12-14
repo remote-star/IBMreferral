@@ -1,20 +1,4 @@
-$().ready(function(){ 
-	if (window.location.pathname != '/') {
-		return;
-	}
-	setLocations();
-	setCategories();
-	$('#search_button').on('click', function(event){
-		event.preventDefault()
-		search();
-	});
-	$('#billboard').children('button').on('click', function(event){
-		$('#billboard').remove();
-	});
-	search();
-}) 
-
-var jobs;
+var jobs, show_modal=true, job_link;
 
 function setLocations() {
 	$.ajax({
@@ -48,6 +32,7 @@ function setDropdownList(type, data) {
 		a = $('<a></a>');
 		a.attr('href', 'javascript:void(0);');
 		a.attr('onclick', 'select("'+type+'","'+(item==' 全部'?'':item)+'")');
+		a.attr('title', item);
 		if(item.length > 15) {
 			item = item.slice(0, 14) + '..';
 		}
@@ -122,7 +107,6 @@ function search() {
         	$('.query_hint').hide();
         } 
 	});
-	$('#search_button').blur();
 }
 
 function turn_to_page(page) {
@@ -144,6 +128,25 @@ function turn_to_page(page) {
 		show_blank_page();
 		return;
 	}
+		tr = $('<tr></tr>');
+		
+		td = $('<th></th>');
+		td.html('职位名称');
+		tr.append(td);
+		
+		td = $('<th></th>');
+		td.html('地点');
+		tr.append(td);
+		
+		td = $('<th></th>');
+		td.html('类别');
+		tr.append(td);
+		
+		td = $('<th></th>');
+		td.html('职位简介');
+		tr.append(td);
+		
+		tbody.append(tr);
 	for(i=0 ; i<10 ; i++) {
 		if(base+i >= this.jobs.length) {
 			break;
@@ -153,7 +156,7 @@ function turn_to_page(page) {
 		td = $('<td></td>');
 		
 		a = $('<a></a>');
-		a.attr('href', job.link);
+		a.attr('href', 'javascript:open_job("'+job.link+'")');
 		a.attr('target', '_blank');
 		a.html(job.name);
 		td.append(a);
@@ -186,6 +189,15 @@ function turn_to_page(page) {
 	main.append(table_wrapper);
 	set_pagination(page);
 	window.scrollTo(0,0);
+}
+
+function open_job(link) {
+	if(show_modal) {
+		$('#myModal').modal('show');
+		job_link = link;
+	} else {
+		window.open(link);
+	}
 }
 
 function show_blank_page() {
@@ -307,3 +319,37 @@ function getOption(id) {
 	var dropdownButton = $('#dropdownButton'+id);
 	return dropdownButton.data('value')
 }
+
+$().ready(function(){ 
+	if (window.location.pathname != '/') {
+		return;
+	}
+	setLocations();
+	setCategories();
+	$('#search_button').on('click', function(event){
+		event.preventDefault();
+		search();
+		$('#search_button').blur();
+	});
+	$('#clear_button').on('click', function(event){
+		$('#search_input').val('');
+		select('Category', '');
+		select('Location', '');
+		event.preventDefault();
+		search();
+		$('#clear_button').blur();
+	});
+	$('#billboard').children('button').on('click', function(event){
+		$('#billboard').remove();
+	});
+	if($('#modal_close_button')) {
+		$('#modal_close_button').on('click', function(){
+			window.open(job_link);
+			job_link = null;
+			if($('#never_show').prop('checked')){
+				show_modal = false;
+			}
+		});
+	}
+	search();
+})
