@@ -197,6 +197,7 @@ function open_job(link) {
 		job_link = link;
 	} else {
 		window.open(link);
+		$('a:focus').blur();
 	}
 }
 
