@@ -1,4 +1,4 @@
-var jobs, show_modal=true, job_link;
+var jobs, job_link;
 
 function setLocations() {
 	$.ajax({
@@ -156,9 +156,12 @@ function turn_to_page(page) {
 		td = $('<td></td>');
 		
 		a = $('<a></a>');
-		a.attr('href', 'javascript:open_job("'+job.link+'")');
+		a.attr('href', job.link);
 		a.attr('target', '_blank');
 		a.html(job.name);
+		a.on("click", function(event){
+			open_job($(this), event);
+		});
 		td.append(a);
 		
 		if(job.bonus) {
@@ -191,12 +194,12 @@ function turn_to_page(page) {
 	window.scrollTo(0,0);
 }
 
-function open_job(link) {
-	if(show_modal) {
+function open_job(link, event) {
+	if(!$.cookie('no_show_modal')) {
+		event.preventDefault();
 		$('#myModal').modal('show');
-		job_link = link;
+		job_link = link.attr('href');
 	} else {
-		window.open(link);
 		$('a:focus').blur();
 	}
 }
@@ -321,8 +324,20 @@ function getOption(id) {
 	return dropdownButton.data('value')
 }
 
-$().ready(function(){ 
-	if (window.location.pathname != '/') {
+$().ready(function(){
+	if($('#modal_close_button')) {
+		$('#modal_close_button').on('click', function(){
+			window.open(job_link);
+			job_link = null;
+			if($('#never_show').prop('checked')){
+				$.cookie('no_show_modal', true, {path: '/'});
+			}
+		});
+	}
+	if(window.location.pathname != '/') {
+		$("td a").on("click", function(event){
+			open_job($(this), event);
+		});
 		return;
 	}
 	setLocations();
@@ -343,14 +358,5 @@ $().ready(function(){
 	$('#billboard').children('button').on('click', function(event){
 		$('#billboard').remove();
 	});
-	if($('#modal_close_button')) {
-		$('#modal_close_button').on('click', function(){
-			window.open(job_link);
-			job_link = null;
-			if($('#never_show').prop('checked')){
-				show_modal = false;
-			}
-		});
-	}
 	search();
 })
