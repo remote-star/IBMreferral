@@ -24,12 +24,9 @@ urlpatterns = [
     url(r'^help/(\w+)/$', views.help, name='help'),
     url(r'^hot/$', views.hot, name='hot'),
     url(r'^hot/(\w+)/$', views.hot, name='hot'),
-    url(r'^market/$', views.market, name='market'),
-    url(r'^market/(\w+)/$', views.market, name='market'),
     url(r'^getLocations/$', views.get_locations, name='getLocations'),
     url(r'^getCategories/$', views.get_categories, name='getCategories'),
     url(r'^getJobs/$', views.find_jobs, name='findJobs'),
-#     url(r'^getOtherMenus/$', views.get_other_menus, name='getOtherMenus'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^favicon\.ico$', RedirectView.as_view(url='/static/images/favicon.ico')),
 ]
