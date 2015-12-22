@@ -273,3 +273,13 @@ left:-8px;
 {
     margin-right: 10px;
 }
+
+#billboard p
+{
+    margin-bottom: 5px;
+}
+
+#billboard p:last-child
+{
+    margin-top: 20px;
+}
